@@ -39,12 +39,27 @@ input[type = text]:focus, input[type = password]:focus {
 
 input[type="submit"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px 20px;
     border: 1px solid #d5d6d8;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #105aca;
     color: white;
     font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(16, 90, 202, 0.3);
+}
+
+input[type="submit"]:hover {
+    background-color: #0d4ba0;
+    box-shadow: 0 4px 8px rgba(16, 90, 202, 0.4);
+    transform: translateY(-1px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(16, 90, 202, 0.3);
 }
 
 .form-grp .fa {
