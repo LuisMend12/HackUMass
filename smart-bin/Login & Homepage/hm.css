@@ -13,6 +13,8 @@
     height: 280px;
     position: relative;
     width: 243px;
+    border-radius: 15px;
+    overflow: hidden;
   }
   
   .card h2 {
