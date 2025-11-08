@@ -13,7 +13,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h2>Smart Bin</h2>
+            <a href="hm.html" class="sidebar-logo"><h2>Smart Bin</h2></a>
             <button class="sidebar-toggle" id="sidebarToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -59,19 +59,87 @@
 
         <!-- Main Content -->
         <main class="main-content">
+        <!-- Stats Counter -->
+        <div class="stats-counter">
+            <div class="stat-item">
+                <i class="fas fa-trash-alt"></i>
+                <div class="stat-info">
+                    <span class="stat-value" id="totalItems">0</span>
+                    <span class="stat-label">Total Items</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-recycle"></i>
+                <div class="stat-info">
+                    <span class="stat-value" id="recycledItems">0</span>
+                    <span class="stat-label">Recycled</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <div class="stat-info">
+                    <span class="stat-value" id="todayItems">0</span>
+                    <span class="stat-label">Today</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Popup -->
+        <div class="notification-popup" id="notificationPopup">
+            <div class="notification-content">
+                <div class="notification-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>New Item Detected</h3>
+                    <button class="notification-close" id="notificationClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-body">
+                    <div class="notification-image">
+                        <img id="notificationImage" src="https://picsum.photos/150/150" alt="Item">
+                    </div>
+                    <div class="notification-details">
+                        <div class="detail-item">
+                            <i class="fas fa-tag"></i>
+                            <span class="detail-label">Type:</span>
+                            <span class="detail-value" id="notificationType">Plastic Bottle</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-trash-alt"></i>
+                            <span class="detail-label">Bin:</span>
+                            <span class="detail-value" id="notificationBin">BIN-001</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Time:</span>
+                            <span class="detail-value" id="notificationTime">Just now</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-weight"></i>
+                            <span class="detail-label">Weight:</span>
+                            <span class="detail-value" id="notificationWeight">0.5 kg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="notification-footer">
+                    <button class="notification-btn" id="notificationCheck">Got it!</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Dashboard Charts Section -->
         <div class="dashboard-section">
             <div class="charts-grid">
-                <!-- Pie Chart -->
+                <!-- Pie Chart - Item Distribution by Class -->
                 <div class="chart-card">
-                    <h3>Fill Level Distribution</h3>
+                    <h3>Item Distribution by Class</h3>
                     <div class="chart-placeholder pie-chart">
-                        <div class="chart-content">
-                            <div class="pie-segment" style="--percentage: 34; --color: #6f42c1;">34%</div>
-                            <div class="pie-segment" style="--percentage: 32; --color: #357266;">32%</div>
-                            <div class="pie-segment" style="--percentage: 14; --color: #17a2b8;">14%</div>
-                            <div class="pie-segment" style="--percentage: 10; --color: #ffc107;">10%</div>
-                            <div class="pie-segment" style="--percentage: 8; --color: #dc3545;">8%</div>
+                        <div class="chart-content" id="pieChartContent">
+                            <!-- Pie chart segments will be dynamically generated here -->
+                            <!-- See monitoring.js - updatePieChart() function -->
+                        </div>
+                        <div class="pie-legend" id="pieChartLegend">
+                            <!-- Legend items will be dynamically generated here -->
                         </div>
                     </div>
                 </div>
