@@ -349,5 +349,35 @@ function initNotificationSystem() {
     // Make processNewItem available globally so hardware can call it
     window.processNewItem = processNewItem;
     // ============================================================================
+    
+    // ============================================================================
+    // WEBCAM DETECTION INTEGRATION (Socket.io)
+    // ============================================================================
+    // Connect to Flask server for real-time webcam detection
+    // Only connect if Socket.io is available and we're on the monitoring page
+    if (typeof io !== 'undefined' && window.location.pathname.includes('monitoring.html')) {
+        const socket = io('http://localhost:5000');
+        
+        socket.on('connect', function() {
+            console.log('✓ Connected to webcam detection server');
+        });
+        
+        socket.on('new_item', function(itemData) {
+            console.log('📦 New item received from webcam:', itemData);
+            // Process the item through the dashboard system
+            if (window.processNewItem) {
+                window.processNewItem(itemData);
+            }
+        });
+        
+        socket.on('disconnect', function() {
+            console.log('✗ Disconnected from webcam detection server');
+        });
+        
+        socket.on('connect_error', function(error) {
+            console.log('⚠ Webcam detection server not available (this is OK if not using webcam)');
+        });
+    }
+    // ============================================================================
 }
 
