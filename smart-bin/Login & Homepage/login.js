@@ -1,9 +1,9 @@
-var pass = document.querySelector('#user');
-pass.addEventListener('keyup', function(e) {
-    var u_times = document.querySelector('.u_times');
-    var u_check = document.querySelector('.u_check');
+var user = document.querySelector('#user');
+user.addEventListener('keyup', function(e) {
+    var u_times = document.querySelector('.u-times');
+    var u_check = document.querySelector('.u-check');
     if (user.value.length == 0 || user.value.length < 6) {
-        user.getElementsByClassName.border = '1px solid red';
+        user.style.border = '1px solid red';
         u_times.style.display = 'block';
         u_check.style.display = 'none';
         return false;
@@ -34,7 +34,7 @@ function myFunction() {
     if (x.type === 'password') {
         x.type = 'text';
     } else {
-        x.type = 'pass';
+        x.type = 'password';
     }
 }
 
