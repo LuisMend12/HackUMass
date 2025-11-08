@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring - Smart Garbage System</title>
+    <link rel="stylesheet" href="monitoring.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="monitoring.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Smart Bin</h2>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="monitoring.html" class="nav-item active">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="bins.html" class="nav-item">
+                <i class="fas fa-trash-alt"></i>
+                <span>Bins</span>
+            </a>
+            <a href="map.html" class="nav-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Map</span>
+            </a>
+            <a href="account.html" class="nav-item">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="hm.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="logout.html" class="nav-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Dashboard</h1>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <!-- Dashboard Charts Section -->
+        <div class="dashboard-section">
+            <div class="charts-grid">
+                <!-- Pie Chart -->
+                <div class="chart-card">
+                    <h3>Fill Level Distribution</h3>
+                    <div class="chart-placeholder pie-chart">
+                        <div class="chart-content">
+                            <div class="pie-segment" style="--percentage: 34; --color: #6f42c1;">34%</div>
+                            <div class="pie-segment" style="--percentage: 32; --color: #357266;">32%</div>
+                            <div class="pie-segment" style="--percentage: 14; --color: #17a2b8;">14%</div>
+                            <div class="pie-segment" style="--percentage: 10; --color: #ffc107;">10%</div>
+                            <div class="pie-segment" style="--percentage: 8; --color: #dc3545;">8%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Line Chart -->
+                <div class="chart-card">
+                    <h3>Collection Trends</h3>
+                    <div class="chart-placeholder line-chart">
+                        <canvas id="lineChart" width="400" height="200"></canvas>
+                        <p class="chart-caption">Collection data over time</p>
+                    </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="chart-card">
+                    <h3>Bin Status Overview</h3>
+                    <div class="chart-placeholder bar-chart">
+                        <div class="bar-chart-content">
+                            <div class="bar" style="height: 80%;" data-label="High">80</div>
+                            <div class="bar" style="height: 45%;" data-label="Medium">45</div>
+                            <div class="bar" style="height: 20%;" data-label="Low">20</div>
+                            <div class="bar" style="height: 92%;" data-label="High">92</div>
+                            <div class="bar" style="height: 60%;" data-label="Medium">60</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map/Geographic Chart -->
+                <div class="chart-card map-card">
+                    <h3>Geographic Distribution</h3>
+                    <div class="chart-placeholder map-chart">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Map visualization will be displayed here</p>
+                        <p class="chart-caption">Bin locations across regions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HACKUMASS 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
+

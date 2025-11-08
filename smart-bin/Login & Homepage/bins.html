@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bins - Smart Garbage System</title>
+    <link rel="stylesheet" href="monitoring.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="monitoring.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Smart Bin</h2>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="monitoring.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="bins.html" class="nav-item active">
+                <i class="fas fa-trash-alt"></i>
+                <span>Bins</span>
+            </a>
+            <a href="map.html" class="nav-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Map</span>
+            </a>
+            <a href="account.html" class="nav-item">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="hm.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="logout.html" class="nav-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Bins</h1>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <!-- Bin Tracker Section -->
+        <div class="bins-section">
+            <div class="section-header">
+                <h2>Bin Tracker</h2>
+                <div class="action-bar">
+                    <input type="text" class="search-input" placeholder="Search bins...">
+                    <select class="sort-select">
+                        <option>Sort</option>
+                        <option>Fill Level (High to Low)</option>
+                        <option>Fill Level (Low to High)</option>
+                        <option>Last Collected</option>
+                        <option>Next Collection</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Filter</option>
+                        <option>High Fill (>80%)</option>
+                        <option>Medium Fill (40-80%)</option>
+                        <option>Low Fill (<40%)</option>
+                    </select>
+                    <button class="add-btn">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Bin Tracker Table -->
+            <div class="table-container">
+                <table class="monitoring-table">
+                    <thead>
+                        <tr>
+                            <th>Bin #</th>
+                            <th>Current Fill State</th>
+                            <th>Last Collected Time</th>
+                            <th>Expected Collection Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BIN-001</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 85%"></div>
+                                    <span>85%</span>
+                                </div>
+                            </td>
+                            <td>Saturday 5/8/2023 at 9:32pm</td>
+                            <td>Saturday 12/8/2023 at 10:00am</td>
+                            <td><span class="status-badge high">High</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BIN-002</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 45%"></div>
+                                    <span>45%</span>
+                                </div>
+                            </td>
+                            <td>Friday 4/8/2023 at 2:15pm</td>
+                            <td>Monday 7/8/2023 at 9:00am</td>
+                            <td><span class="status-badge medium">Medium</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BIN-003</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 20%"></div>
+                                    <span>20%</span>
+                                </div>
+                            </td>
+                            <td>Thursday 3/8/2023 at 11:00am</td>
+                            <td>Wednesday 9/8/2023 at 8:00am</td>
+                            <td><span class="status-badge low">Low</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BIN-004</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 92%"></div>
+                                    <span>92%</span>
+                                </div>
+                            </td>
+                            <td>Saturday 5/8/2023 at 8:45am</td>
+                            <td>Sunday 6/8/2023 at 7:00am</td>
+                            <td><span class="status-badge high">High</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BIN-005</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 60%"></div>
+                                    <span>60%</span>
+                                </div>
+                            </td>
+                            <td>Friday 4/8/2023 at 4:30pm</td>
+                            <td>Tuesday 8/8/2023 at 11:00am</td>
+                            <td><span class="status-badge medium">Medium</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BIN-006</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 75%"></div>
+                                    <span>75%</span>
+                                </div>
+                            </td>
+                            <td>Sunday 6/8/2023 at 3:20pm</td>
+                            <td>Thursday 10/8/2023 at 9:30am</td>
+                            <td><span class="status-badge medium">Medium</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BIN-007</td>
+                            <td>
+                                <div class="fill-bar">
+                                    <div class="fill-level" style="width: 15%"></div>
+                                    <span>15%</span>
+                                </div>
+                            </td>
+                            <td>Monday 7/8/2023 at 10:15am</td>
+                            <td>Friday 11/8/2023 at 8:00am</td>
+                            <td><span class="status-badge low">Low</span></td>
+                            <td class="actions">
+                                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HACKUMASS 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
+

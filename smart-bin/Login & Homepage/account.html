@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Smart Garbage System</title>
+    <link rel="stylesheet" href="monitoring.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="monitoring.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Smart Bin</h2>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="monitoring.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="bins.html" class="nav-item">
+                <i class="fas fa-trash-alt"></i>
+                <span>Bins</span>
+            </a>
+            <a href="map.html" class="nav-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Map</span>
+            </a>
+            <a href="account.html" class="nav-item active">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="hm.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="logout.html" class="nav-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Account Settings</h1>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="account-section">
+                <div class="account-card">
+                    <div class="account-header">
+                        <div class="account-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h2>Admin User</h2>
+                        <p>admin@smartbin.com</p>
+                    </div>
+                </div>
+
+                <div class="account-card">
+                    <h3>Profile Information</h3>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" value="admin" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="admin@smartbin.com" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" value="Administrator" class="form-input">
+                    </div>
+                    <button class="save-btn">Save Changes</button>
+                </div>
+
+                <div class="account-card">
+                    <h3>Change Password</h3>
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" class="form-input">
+                    </div>
+                    <button class="save-btn">Update Password</button>
+                </div>
+
+                <div class="account-card">
+                    <h3>Preferences</h3>
+                    <div class="preference-item">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <div class="preference-text">
+                            <strong>Email Notifications</strong>
+                            <p>Receive email alerts for bin status updates</p>
+                        </div>
+                    </div>
+                    <div class="preference-item">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <div class="preference-text">
+                            <strong>Push Notifications</strong>
+                            <p>Get real-time notifications on your device</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HACKUMASS 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
+

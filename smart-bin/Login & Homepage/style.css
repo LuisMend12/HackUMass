@@ -6,32 +6,78 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Banner */
-.banner {
-    text-align: center;
-    margin: 40px 0 20px;
-    font-size: 36px;
-    font-weight: bolder;
-    color: rgb(20, 73, 141);
+/* Body background - Honeydew for soft, pleasant feel */
+body {
+    background-color: #D9EDDA;
+    min-height: 100vh;
+    animation: fadeIn 0.5s ease-in;
 }
 
-/* Form container */
+/* Page Transition Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+body.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+/* Banner - Myrtle Green for professional header text, positioned above login card */
+.banner {
+    position: fixed;
+    top: 60px;
+    left: 50px;
+    text-align: left;
+    font-size: 26px;
+    font-weight: 700;
+    color: #357266; /* Myrtle Green */
+    z-index: 10;
+    max-width: 450px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form container - White for clean, readable form */
 .form-container {
-    background-color: #eee; /* softer color */
+    background-color: #ffffff;
     width: 450px;
     max-width: 90%; /* responsive */
     margin: 50px auto 50px 50px;
     padding: 30px 25px;
-    box-shadow: 0 5px 15px rgba(16, 38, 165, 0.2);
+    box-shadow: 0 5px 15px rgba(53, 114, 102, 0.2); /* Myrtle Green shadow */
     border-radius: 10px;
-    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    border: 2px solid #D9EDDA; /* Honeydew border for subtle definition */
 }
 
-/* Form heading */
+/* Form heading - Myrtle Green for consistency */
 .form-container h3 {
     text-align: center;
     padding-bottom: 15px;
-    color: rgb(20, 73, 141);
+    color: #357266; /* Myrtle Green */
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 /* Form groups */
@@ -40,48 +86,67 @@
     margin-bottom: 20px;
 }
 
-/* Inputs */
+/* Form labels - bold and clear */
+.form-grp label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #357266; /* Myrtle Green */
+    margin-bottom: 8px;
+    display: block;
+    letter-spacing: 0.3px;
+}
+
+/* Inputs - Honeydew background with Myrtle Green borders */
 input[type="text"], input[type="password"] {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #553ea7;
+    padding: 12px 15px;
+    border: 2px solid #357266; /* Myrtle Green border */
     border-radius: 6px;
-    background-color: #d0eef0;
-    font-weight: bold;
+    background-color: #D9EDDA; /* Honeydew background */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
     transition: all 0.3s ease;
+    color: #357266; /* Myrtle Green text */
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border: 2px solid #9fc906;
+    border: 2px solid #105ACA; /* Tang Blue on focus for interactivity */
     outline: none; /* remove default focus outline */
-    box-shadow: 0 0 5px rgba(159, 201, 6, 0.5);
+    box-shadow: 0 0 8px rgba(16, 90, 202, 0.4); /* Tang Blue glow */
+    background-color: #ffffff; /* White on focus for clarity */
 }
 
-/* Placeholder styling */
+/* Placeholder styling - Lighter Myrtle Green for subtlety */
 input[type="text"]::placeholder,
 input[type="password"]::placeholder {
-    color: #555;
+    color: rgba(53, 114, 102, 0.5); /* Semi-transparent Myrtle Green */
     font-weight: normal;
 }
 
-/* Submit button */
+/* Submit button - Tang Blue for primary action */
 input[type="submit"] {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: none;
     border-radius: 6px;
-    background-color: #105aca;
+    background-color: #105ACA; /* Tang Blue */
     color: white;
-    font-weight: bold;
-    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(16, 90, 202, 0.3);
+    text-transform: uppercase;
 }
 
 input[type="submit"]:hover {
-    background-color: #0c43a0;
+    background-color: #0d4ba0; /* Darker Tang Blue on hover */
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16, 90, 202, 0.4);
 }
 
 /* Validation icons */
@@ -95,14 +160,15 @@ input[type="submit"]:hover {
 }
 
 .fa-check {
-    color: #28a745;
+    color: #357266; /* Myrtle Green for success */
     display: inline;
 }
 
 .fa-times {
-    color: #dc3545;
+    color: #dc3545; /* Keep red for errors - standard UX */
     display: inline;
 }
+
 
 /* Login page background image - right side, behind components */
 .login-background-image {

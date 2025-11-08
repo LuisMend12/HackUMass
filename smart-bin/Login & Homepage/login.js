@@ -20,9 +20,13 @@ function validate() {
     var user = document.querySelector('#user');
     var pass = document.querySelector('#pass');
     if (user.value == 'admin' && pass.value == 'vvit@123') {
-        window.location = 'hm.html';
-        alert('Login Successfull');
-        return true;
+        // Add fade-out animation
+        document.body.classList.add('fade-out');
+        setTimeout(function() {
+            alert('Login Successfull');
+            window.location = 'hm.html';
+        }, 300);
+        return false; // Prevent default form submission
     } else {
         alert('Login Failed!...Try Again');
         return false;

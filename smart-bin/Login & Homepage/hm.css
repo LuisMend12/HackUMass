@@ -1,3 +1,37 @@
+/* Body background - Honeydew for consistency */
+body {
+    background-color: #D9EDDA; /* Honeydew */
+    min-height: 100vh;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Page Transition Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+body.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -8,18 +42,48 @@
   }
   
   .card {
-    box-shadow: 0 3px 10px 0 #aaa;
+    box-shadow: 0 3px 10px rgba(53, 114, 102, 0.2); /* Myrtle Green shadow */
     cursor: pointer;
     height: 280px;
     position: relative;
     width: 243px;
     border-radius: 15px;
     overflow: hidden;
+    background-color: #ffffff; /* White cards for contrast */
+    border: 2px solid #D9EDDA; /* Honeydew border */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Card images - sit at top of card, fixed height, cannot grow */
+  .card img {
+    width: 100%;
+    height: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+    flex-grow: 0;
   }
   
   .card h2 {
     font-size: 20px;
     font-weight: bold;
+    color: #357266; /* Myrtle Green for card titles */
+    margin: 0;
+  }
+
+  /* Card body - takes remaining space below image */
+  .card-body {
+    flex: 1 1 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 0;
+    overflow: hidden;
   }
   
   .card.visited {
@@ -32,10 +96,11 @@
     transform: translate(-50%, -50%);
     width: 80%;
     text-align: center;
-    background-color: #105aca;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: #357266; /* Myrtle Green for banner - professional and matches theme */
+    box-shadow: 0 8px 25px rgba(53, 114, 102, 0.3); /* Myrtle Green shadow */
     border-radius: 15px;
     padding: 30px;
+    border: 2px solid #105ACA; /* Tang Blue border for accent */
 }
 
 .banner h1 {
@@ -53,11 +118,11 @@
     margin-top: 5px;
 }
 
-/* Button styling - improved appearance */
+/* Button styling - Tang Blue for primary actions */
 .card button {
-    background-color: #105aca;
+    background-color: #105ACA; /* Tang Blue */
     color: white;
-    border: 1px solid #d5d6d8;
+    border: 2px solid #357266; /* Myrtle Green border for accent */
     border-radius: 6px;
     padding: 12px 25px;
     font-weight: bold;
@@ -71,7 +136,8 @@
 }
 
 .card button:hover {
-    background-color: #0d4ba0;
+    background-color: #0d4ba0; /* Darker Tang Blue */
+    border-color: #105ACA; /* Tang Blue border on hover */
     box-shadow: 0 4px 8px rgba(16, 90, 202, 0.4);
     transform: translateY(-2px);
 }
@@ -82,9 +148,9 @@
 }
 
 .logout-btn {
-    background-color: #105aca;
+    background-color: #105ACA; /* Tang Blue */
     color: white;
-    border: 1px solid #d5d6d8;
+    border: 2px solid #357266; /* Myrtle Green border */
     border-radius: 6px;
     padding: 10px 20px;
     font-weight: bold;
@@ -95,7 +161,8 @@
 }
 
 .logout-btn:hover {
-    background-color: #0d4ba0;
+    background-color: #0d4ba0; /* Darker Tang Blue */
+    border-color: #105ACA;
     box-shadow: 0 4px 8px rgba(16, 90, 202, 0.4);
     transform: translateY(-1px);
 }

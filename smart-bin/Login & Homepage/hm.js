@@ -1,3 +1,21 @@
+// Add smooth transitions for all links on the page
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle regular links (logout button, etc.)
+  const links = document.querySelectorAll('a[href]:not([href^="#"]):not([href^="http"])');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && !href.startsWith('#') && !href.startsWith('http')) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(function() {
+          window.location = href;
+        }, 300);
+      }
+    });
+  });
+});
+
 clickAndSelect()
 
 function clickAndSelect() {
@@ -34,9 +52,13 @@ function clickAndSelect() {
       // Allow 200ms to distinguish click from non-click
       if(now - then < 200) {
         
-        // Visit the link in the card
-        // Change 'a' to a class if you have multiple links
-        window.location = card.querySelector('a').href
+        // Add fade-out animation
+        document.body.classList.add('fade-out');
+        
+        // Visit the link in the card after transition
+        setTimeout(function() {
+          window.location = card.querySelector('a').href;
+        }, 300);
     
         // Remove for production
         card.classList.add('visited')

@@ -19,41 +19,52 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
+            background-color: #D9EDDA; /* Honeydew */
+            color: #357266; /* Myrtle Green */
         }
 
         .logout {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #ffffff; /* White */
             padding: 40px 60px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(53, 114, 102, 0.2); /* Myrtle Green shadow */
+            border: 2px solid #D9EDDA; /* Honeydew border */
         }
 
         .logout h1 {
             font-size: 24px;
             margin-bottom: 30px;
+            color: #357266; /* Myrtle Green */
+            font-weight: 700;
         }
 
         .logout a {
             text-decoration: none;
             color: #fff;
-            background: #ff4b2b;
+            background: #105ACA; /* Tang Blue */
             padding: 12px 25px;
-            border-radius: 8px;
+            border-radius: 6px;
             margin: 0 15px;
             font-weight: bold;
             transition: all 0.3s ease;
+            border: 2px solid #357266; /* Myrtle Green border */
+            box-shadow: 0 2px 5px rgba(16, 90, 202, 0.3);
+            display: inline-block;
         }
 
         .logout a:nth-child(2) {
-            background: #28a745;
+            background: #357266; /* Myrtle Green for "No" button */
+            border: 2px solid #105ACA; /* Tang Blue border */
         }
 
         .logout a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(16, 90, 202, 0.4);
+        }
+
+        .logout a:nth-child(2):hover {
+            box-shadow: 0 4px 8px rgba(53, 114, 102, 0.4);
         }
 
         @media (max-width: 500px) {
