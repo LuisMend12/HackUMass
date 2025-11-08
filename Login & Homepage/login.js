@@ -1,40 +1,40 @@
-// Username validation
-const userInput = document.querySelector('#user');
-const uTimes = document.querySelector('.u_times');
-const uCheck = document.querySelector('.u_check');
-
-userInput.addEventListener('keyup', () => {
-    if (userInput.value.length < 6) {
-        userInput.style.border = '2px solid red';
-        uTimes.style.display = 'inline';
-        uCheck.style.display = 'none';
+var pass = document.querySelector('#user');
+pass.addEventListener('keyup', function(e) {
+    var u_times = document.querySelector('.u_times');
+    var u_check = document.querySelector('.u_check');
+    if (user.value.length == 0 || user.value.length < 6) {
+        user.getElementsByClassName.border = '1px solid red';
+        u_times.style.display = 'block';
+        u_check.style.display = 'none';
+        return false;
     } else {
-        userInput.style.border = '2px solid green';
-        uTimes.style.display = 'none';
-        uCheck.style.display = 'inline';
+       user.style.border = '1px solid green';
+         u_times.style.display = 'none';
+        u_check.style.display = 'block';
+      
     }
-});
 
-// Login validation
+})
+
 function validate() {
-    const user = document.querySelector('#user');
-    const pass = document.querySelector('#pass');
-
-    if (user.value === 'admin' && pass.value === 'vvit@123') {
-        // Optional: Use inline message instead of alert
-        alert('Login Successful!');
-        window.location.href = 'hm.html';
+    var user = document.querySelector('#user');
+    var pass = document.querySelector('#pass');
+    if (user.value == 'admin' && pass.value == 'vvit@123') {
+        window.location = 'hm.html';
+        alert('Login Successfull');
         return true;
     } else {
-        alert('Login Failed! Please try again.');
-        user.style.border = '2px solid red';
-        pass.style.border = '2px solid red';
+        alert('Login Failed!...Try Again');
         return false;
     }
 }
 
-// Toggle password visibility
-function togglePassword() {
-    const passInput = document.getElementById('pass');
-    passInput.type = passInput.type === 'password' ? 'text' : 'password';
+function myFunction() {
+    var x = document.getElementById("pass");
+    if (x.type === 'password') {
+        x.type = 'text';
+    } else {
+        x.type = 'pass';
+    }
 }
+

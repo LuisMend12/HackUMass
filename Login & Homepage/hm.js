@@ -1,41 +1,52 @@
-function clickAndSelect({ clickThreshold = 200, debug = false } = {}) {
-    // Select all card elements
-    const cards = document.querySelectorAll('.card');
+clickAndSelect()
+
+function clickAndSelect() {
+  let cards = Array.from( document.querySelectorAll('.card') ),
+      elements = []
+  
+  // Add child nodes to clickable elements
+  cards.forEach(card => {
+    elements = elements.concat( Array.from(card.children) )
+  })
+
+  // Attach to mouse events
+  elements.forEach(element => {
     
-    // Map to store mousedown timestamps
-    const mouseDownMap = new WeakMap();
+    // click: Disable
+    element.addEventListener('click', e => e.preventDefault())
+    
+    // mousedown: Log the timestamp
+    element.addEventListener('mousedown', e => {
+      let card = e.target.closest(".card")
+      card.setAttribute('data-md', Date.now())
+    })
+    
+    // mouseup: Determine whether to click
+    element.addEventListener('mouseup', e => {
+      
+      // Only one please
+      e.stopPropagation();
 
-    cards.forEach(card => {
-        // Disable default click behavior on links inside the card
-        card.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', e => e.preventDefault());
-        });
+      let card = (e.target.classList.contains("card")) ? e.target : e.target.closest('.card'),
+          then = card.getAttribute('data-md'),
+          now = Date.now()
 
-        // Mousedown: store timestamp
-        card.addEventListener('mousedown', () => {
-            mouseDownMap.set(card, Date.now());
-        });
-
-        // Mouseup: determine if it is a "click"
-        card.addEventListener('mouseup', () => {
-            const then = mouseDownMap.get(card);
-            const now = Date.now();
-
-            // Only proceed if the card was pressed for less than threshold
-            if (then && (now - then < clickThreshold)) {
-                const link = card.querySelector('a');
-                if (link) {
-                    window.location.href = link.href;
-                    card.classList.add('visited');
-                    if (debug) console.log(`Navigating to: ${link.href}`);
-                }
-            }
-
-            // Clean up timestamp
-            mouseDownMap.delete(card);
-        });
-    });
+      // Allow 200ms to distinguish click from non-click
+      if(now - then < 200) {
+        
+        // Visit the link in the card
+        // Change 'a' to a class if you have multiple links
+        window.location = card.querySelector('a').href
+    
+        // Remove for production
+        card.classList.add('visited')
+        console.log(card.querySelector('a').href)
+        
+      }
+  
+      // Clean up
+      card.removeAttribute('data-md')
+      
+    })
+  })
 }
-
-// Usage: call after DOM content is loaded
-document.addEventListener('DOMContentLoaded', () => clickAndSelect({ clickThreshold: 200, debug: true }));
