@@ -1,79 +1,122 @@
-
+/* Global reset */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
-/* form container */
-
-.form-container {
-   background-color: rgb(238, 237, 231);
-   width: 300px;
-   margin: 50px auto;
-   box-shadow: 0PX 3PX 7PX  3px rgba(16, 38, 165, 0.205);
-   font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.form-container h3 {
+/* Banner */
+.banner {
     text-align: center;
-    padding: 8px;
-}
-
-.form-grp {
-    padding: 8px;
-    position: relative;
-}
-
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #553ea7;
-    border-radius: 4px;
-    background-color: rgb(208, 238, 240);
-    font-weight: bold;
-}
-
-input[type = text]:focus, input[type = password]:focus {
-    border: 1px solid #9fc906;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #d5d6d8;
-    border-radius: 4px;
-    background-color: #105aca;
-    color: white;
-    font-weight: bold;
-}
-
-.form-grp .fa {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: #aa0a0a;
-    display: none;
-}
-.fa-times {
-    color: #f00;
-}
-
-.fa-check {
-    color: #0f0;
-}
-
-.banner{
-    width: 100%; 
-    size-adjust: 100%;
-    font-size: 40px;
+    margin: 40px 0 20px;
+    font-size: 36px;
     font-weight: bolder;
     color: rgb(20, 73, 141);
 }
 
+/* Form container */
 .form-container {
-    height: 55vh
-
+    background-color: #eee; /* softer color */
+    width: 300px;
+    max-width: 90%; /* responsive */
+    margin: 50px auto;
+    padding: 25px 20px;
+    box-shadow: 0 5px 15px rgba(16, 38, 165, 0.2);
+    border-radius: 10px;
+    font-weight: bold;
 }
 
+/* Form heading */
+.form-container h3 {
+    text-align: center;
+    padding-bottom: 15px;
+    color: rgb(20, 73, 141);
+}
 
+/* Form groups */
+.form-grp {
+    position: relative;
+    margin-bottom: 20px;
+}
 
+/* Inputs */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #553ea7;
+    border-radius: 6px;
+    background-color: #d0eef0;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 2px solid #9fc906;
+    outline: none; /* remove default focus outline */
+    box-shadow: 0 0 5px rgba(159, 201, 6, 0.5);
+}
+
+/* Placeholder styling */
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #555;
+    font-weight: normal;
+}
+
+/* Submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #105aca;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0c43a0;
+    transform: translateY(-2px);
+}
+
+/* Validation icons */
+.form-grp .fa {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 18px;
+    display: none; /* toggle with JS for validation */
+}
+
+.fa-check {
+    color: #28a745;
+    display: inline;
+}
+
+.fa-times {
+    color: #dc3545;
+    display: inline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .form-container {
+        width: 90%;
+        padding: 20px 15px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .banner {
+        font-size: 28px;
+    }
+}
