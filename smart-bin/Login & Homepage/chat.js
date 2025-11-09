@@ -1,4 +1,3 @@
-const API_KEY = "YOUR_GEMINI_API_KEY";
 const chatToggle = document.getElementById("chat-toggle");
 const chatContainer = document.getElementById("chat-container");
 const chatBox = document.getElementById("chat-box");
@@ -6,8 +5,13 @@ const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 
 chatToggle.addEventListener("click", () => {
-  chatContainer.style.display =
-    chatContainer.style.display === "flex" ? "none" : "flex";
+  const isVisible = chatContainer.style.display === "flex";
+  chatContainer.style.display = isVisible ? "none" : "flex";
+
+  if (!isVisible && !chatBox.dataset.welcomed) {
+    appendMessage("Gemini", "Hello! 👋 How can I assist you today?");
+    chatBox.dataset.welcomed = "true";
+  }
 });
 
 sendBtn.addEventListener("click", sendMessage);
@@ -35,20 +39,15 @@ function appendMessage(sender, text) {
 }
 
 async function getGeminiResponse(prompt) {
-  const res = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + API_KEY,
-    {
+  try {
+    const res = await fetch("http://localhost:3000/gemini", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
-    }
-  );
-
-  const data = await res.json();
-  return (
-    data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-    "Sorry, I couldn't get a response."
-  );
+      body: JSON.stringify({ prompt }),
+    });
+    const data = await res.json();
+    return data.text;
+  } catch (err) {
+    return "Error connecting to Gemini 😞";
+  }
 }
