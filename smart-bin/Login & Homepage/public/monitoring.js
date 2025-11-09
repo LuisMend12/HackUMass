@@ -54,15 +54,13 @@ function initNotificationSystem() {
     };
 
     const itemTypes = [
-        { type: 'Plastic Bottle', class: 'Plastic', bin: 'BIN-001', weight: '0.5 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=1' },
-        { type: 'Glass Jar', class: 'Glass', bin: 'BIN-002', weight: '0.8 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=2' },
-        { type: 'Cardboard Box', class: 'Cardboard', bin: 'BIN-003', weight: '0.3 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=3' },
-        { type: 'Aluminum Can', class: 'Metal', bin: 'BIN-001', weight: '0.2 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=4' },
-        { type: 'Food Waste', class: 'Food Waste', bin: 'BIN-004', weight: '1.2 kg', recyclable: false, image: 'https://picsum.photos/150/150?random=5' },
-        { type: 'Paper', class: 'Paper', bin: 'BIN-003', weight: '0.1 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=6' },
-        { type: 'Plastic Bag', class: 'Plastic', bin: 'BIN-001', weight: '0.05 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=7' },
-        { type: 'Metal Scrap', class: 'Metal', bin: 'BIN-002', weight: '2.5 kg', recyclable: true, image: 'https://picsum.photos/150/150?random=8' }
+        { type: 'Plastic Bottle', class: 'Plastic', bin: 'BIN-001', weight: '0.5 kg', recyclable: true, image: 'images/plastic.jpeg' },
+        { type: 'Glass Jar', class: 'Glass', bin: 'BIN-002', weight: '0.8 kg', recyclable: true, image: 'images/glass.jpeg' },
+        { type: 'Aluminum Can', class: 'Metal', bin: 'BIN-001', weight: '0.2 kg', recyclable: true, image: 'images/metal.jpeg' },
+        { type: 'Food Waste', class: 'Food Waste', bin: 'BIN-004', weight: '1.2 kg', recyclable: false, image: 'images/Trash.jpeg' },
+        { type: 'Paper', class: 'Paper', bin: 'BIN-003', weight: '0.1 kg', recyclable: true, image: 'images/paper.jpeg' }
     ];
+
 
     // ===========================
     // Stats & Pie Chart
