@@ -356,27 +356,41 @@ function initNotificationSystem() {
     // Connect to Flask server for real-time webcam detection
     // Only connect if Socket.io is available and we're on the monitoring page
     if (typeof io !== 'undefined' && window.location.pathname.includes('monitoring.html')) {
-        const socket = io('http://localhost:5000');
-        
-        socket.on('connect', function() {
-            console.log('✓ Connected to webcam detection server');
-        });
-        
-        socket.on('new_item', function(itemData) {
-            console.log('📦 New item received from webcam:', itemData);
-            // Process the item through the dashboard system
-            if (window.processNewItem) {
-                window.processNewItem(itemData);
-            }
-        });
-        
-        socket.on('disconnect', function() {
-            console.log('✗ Disconnected from webcam detection server');
-        });
-        
-        socket.on('connect_error', function(error) {
-            console.log('⚠ Webcam detection server not available (this is OK if not using webcam)');
-        });
+        try {
+            const socket = io('http://localhost:5000', {
+                reconnection: false,
+                timeout: 2000,
+                transports: ['websocket', 'polling']
+            });
+            
+            socket.on('connect', function() {
+                console.log('✓ Connected to webcam detection server');
+            });
+            
+            socket.on('new_item', function(itemData) {
+                console.log('📦 New item received from webcam:', itemData);
+                // Process the item through the dashboard system
+                if (window.processNewItem) {
+                    window.processNewItem(itemData);
+                }
+            });
+            
+            socket.on('disconnect', function() {
+                console.log('✗ Disconnected from webcam detection server');
+            });
+            
+            socket.on('connect_error', function(error) {
+                // Silently handle connection errors - webcam server is optional
+                // Don't log to avoid console spam
+            });
+            
+            // Suppress 401 and other HTTP errors
+            socket.io.on('error', function(error) {
+                // Silently handle errors - webcam server is optional
+            });
+        } catch (error) {
+            // Silently handle any initialization errors
+        }
     }
     // ============================================================================
 }
