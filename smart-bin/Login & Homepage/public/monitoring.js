@@ -395,3 +395,46 @@ function initNotificationSystem() {
     // ============================================================================
 }
 
+// Preload celebration sound globally
+const celebrationSound = new Audio('/sounds/GAMECas-A_bright,_exciting_c-Elevenlabs.mp3');
+celebrationSound.preload = 'auto';
+window.celebrationSound = celebrationSound;
+
+// Unlock audio on first user interaction
+function unlockAudio() {
+    window.celebrationSound.play().catch(() => {});
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('keydown', unlockAudio);
+}
+document.addEventListener('click', unlockAudio);
+document.addEventListener('keydown', unlockAudio);
+
+// Show notification popup
+function showNotification(item) {
+    const notificationPopup = document.getElementById('notificationPopup');
+    
+    document.getElementById('notificationImage').src = item.image;
+    document.getElementById('notificationType').textContent = item.type;
+    document.getElementById('notificationBin').textContent = item.bin;
+    document.getElementById('notificationWeight').textContent = item.weight;
+
+    // Format time
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('notificationTime').textContent = timeString;
+
+    // Show popup
+    notificationPopup.classList.add('show');
+
+    // Play celebration sound every time a new item arrives
+    if (window.celebrationSound) {
+        window.celebrationSound.currentTime = 0;
+        window.celebrationSound.play().catch(err => console.warn('Sound failed:', err));
+    }
+
+    // Update stats
+    totalItems++;
+    if (item.recyclable) recycledItems++;
+    todayItems++;
+}
+
