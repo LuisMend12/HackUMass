@@ -395,12 +395,12 @@ function initNotificationSystem() {
     // ============================================================================
 }
 
-// Preload celebration sound globally
+// 1️⃣ Preload sound
 const celebrationSound = new Audio('/sounds/GAMECas-A_bright,_exciting_c-Elevenlabs.mp3');
 celebrationSound.preload = 'auto';
 window.celebrationSound = celebrationSound;
 
-// Unlock audio on first user interaction
+// 2️⃣ Unlock audio on first user interaction
 function unlockAudio() {
     window.celebrationSound.play().catch(() => {});
     document.removeEventListener('click', unlockAudio);
@@ -409,32 +409,56 @@ function unlockAudio() {
 document.addEventListener('click', unlockAudio);
 document.addEventListener('keydown', unlockAudio);
 
-// Show notification popup
-function showNotification(item) {
-    const notificationPopup = document.getElementById('notificationPopup');
-    
-    document.getElementById('notificationImage').src = item.image;
-    document.getElementById('notificationType').textContent = item.type;
-    document.getElementById('notificationBin').textContent = item.bin;
-    document.getElementById('notificationWeight').textContent = item.weight;
 
-    // Format time
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-    document.getElementById('notificationTime').textContent = timeString;
+// Get the "Got It" button
+const notificationCheck = document.getElementById('notificationCheck');
 
-    // Show popup
-    notificationPopup.classList.add('show');
-
-    // Play celebration sound every time a new item arrives
-    if (window.celebrationSound) {
-        window.celebrationSound.currentTime = 0;
-        window.celebrationSound.play().catch(err => console.warn('Sound failed:', err));
+notificationCheck.addEventListener('click', () => {
+    // Close the notification
+    if (notificationPopup) {
+        notificationPopup.classList.remove('show');
     }
 
-    // Update stats
-    totalItems++;
-    if (item.recyclable) recycledItems++;
-    todayItems++;
+    // Play the celebration sound
+    if (window.celebrationSound) {
+        window.celebrationSound.currentTime = 0; // restart from beginning
+        window.celebrationSound.play().catch(err => console.warn('Sound failed:', err));
+    }
+});
+
+async function fetchAnnouncerAudio(text) {
+  const voiceId = "YOUR_VOICE_ID";
+  const apiKey = "YOUR_ELEVENLABS_API_KEY";
+
+  const resp = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/qxTFXDYbGcR8GaHSjczg`, {
+    method: "POST",
+    headers: {
+      'xi-api-key': apiKey,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      text: text,
+      model_id: "eleven_multilingual_v2",
+      voice_settings: {
+        stability: 0.75,
+        similarity_boost: 0.5
+      }
+    })
+  });
+
+  if (!resp.ok) { console.error("TTS error", await resp.text()); return null; }
+  const blob = await resp.blob();
+  return URL.createObjectURL(blob);
 }
 
+function showNotification(item) {
+  // existing logic to update DOM, show popup, stats, etc.
+
+  const announcementText = `Attention! ${item.type} detected in ${item.bin}!`;
+  fetchAnnouncerAudio(announcementText).then(audioUrl => {
+    if (audioUrl) {
+      const audio = new Audio(audioUrl);
+      audio.play().catch(err => console.warn("Playback error", err));
+    }
+  });
+}
