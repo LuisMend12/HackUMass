@@ -40,7 +40,7 @@ function appendMessage(sender, text) {
 
 async function getGeminiResponse(prompt) {
   try {
-    const res = await fetch("http://localhost:3000/gemini", {
+    const res = await fetch("/gemini", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ prompt }),
