@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="hm.css">
-    <script src ="hm.js"> </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="hm.css">
+  <link rel="stylesheet" href="chat.css">
+  <script src="hm.js" defer></script>
+  <script src="chat.js" defer></script>
 </head>
+
 <div class="banner">
-    <center>
-        <div class="heading">
-            <h1>SMART GARBAGE MONITORING SYSTEM USING IOT</h1>
-            <h2>WELCOME TO ADMIN PORTAL</h2>
-       
-        </div>
-    </center>
+  <center>
+    <div class="heading">
+      <h1>SMART GARBAGE MONITORING SYSTEM USING IOT</h1>
+      <h2>WELCOME TO ADMIN PORTAL</h2>
+    </div>
+  </center>
 </div>
+
 <body>
-    <nav class="logout-nav">
-        <ul>
-            <li><a href="logout.html"><button class="logout-btn">Logout</button></a></li>
-        </ul>
-    </nav>
-    <div class="hero">
+  <nav class="logout-nav">
+    <ul>
+      <li><a href="logout.html"><button class="logout-btn">Logout</button></a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
     <div class="cards">
-        <div class="card">
-            <img src="img1.png">
-            <div class="card-body">
-              <h2 class="card-title"><center>Dashboard</center></h2>
-              <p>
-                <center><a href="monitoring.html"><button>Click Here</button></a></center>
-              </p>
-            </div>
-          </div>
-        
-        <div class="card">
-            <img src="github_PNG80.png" alt="..." class="card-img-top">
-            <div class="card-body">
-              <h2 class="card-title"><center>GitHub</center></h2>
-              <p>
-                <center><a href="https://github.com/LuisMend12/HackUMass"><button>Click Here</button></a></center>
-              </p>
-            </div>
-          </div>
-        
-        <div class="card">
-          <img src="image0.jpg" alt="About Us" class="card-img-top">
-          <div class="card-body">
-            <h2 class="card-title"><center>About Us</center></h2>
-            <p>
-              <center><a href="about.html"><button>Click Here</button></a></center>
-            </p>
-          </div>
+      <div class="card">
+        <img src="img1.png">
+        <div class="card-body">
+          <h2 class="card-title"><center>Dashboard</center></h2>
+          <p><center><a href="monitoring.html"><button>Click Here</button></a></center></p>
         </div>
       </div>
-      
-    
+
+      <div class="card">
+        <img src="github_PNG80.png" alt="..." class="card-img-top">
+        <div class="card-body">
+          <h2 class="card-title"><center>GitHub</center></h2>
+          <p><center><a href="https://github.com/LuisMend12/HackUMass"><button>Click Here</button></a></center></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image0.jpg" alt="About Us" class="card-img-top">
+        <div class="card-body">
+          <h2 class="card-title"><center>About Us</center></h2>
+          <p><center><a href="about.html"><button>Click Here</button></a></center></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br><br><br>
+  <div>
+    <center class="copyright"><p>HACKUMASS 2025</p></center>   
+  </div>
+
+  <!-- ✅ Gemini Chatbot -->
+  <div id="chat-wrapper">
+    <button id="chat-toggle">
+      💬
+    </button>
+
+    <div class="chat-container" id="chat-container">
+      <div class="chat-box" id="chat-box"></div>
+      <div class="input-area">
+        <input id="user-input" type="text" placeholder="Ask Gemini anything..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
 </body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div>
-  <center class="copyright"><p>HACKUMASS 2025</p></center>   
-</div>
 </html>

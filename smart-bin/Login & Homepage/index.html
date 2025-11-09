@@ -1,50 +1,38 @@
 <!DOCTYPE html>
-<html lan="en" and dir="Itr">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title> Admin Portal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src ="login.js"> </script>
+  <meta charset="utf-8">
+  <title>Admin Portal - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="login.js" defer></script>
 </head>
 
 <body>
-
-<form class="form-container" onsubmit="return validate()"> <br>
+  <form class="form-container" onsubmit="return validate(event)">
     <h3>Login</h3>
+
     <div class="form-grp">
-        <label for="username">Username</label><br>
-        <input type="text" name="username" placeholder="Username" id="user">
-        <i class="fa fa-times u-times"></i>
-        <i class="fa fa-check u-check"></i>
+      <label for="username">Username</label><br>
+      <input type="text" id="user" placeholder="Username">
     </div>
 
     <div class="form-grp">
-        <label for="password">Password</label><br>
-        <input type="password" name="password" placeholder="password" id="pass">
-        <i class="fa fa-times p-times"></i>
-        <i class="fa fa-check p-check"></i>
-    </div> 
-
-<div class="form-grp">
-    <center>
-        <!-- An element to toggle between password visibility -->
-        <input type="checkbox" onclick="myFunction()">Show Password
-        
-        </center>
-</div>
-
-
-
-
-    <div class="form-grp">
-        <input type="submit" name="login-btn" value="Login">
+      <label for="password">Password</label><br>
+      <input type="password" id="pass" placeholder="Password">
     </div>
 
-</form>
+    <div class="form-grp">
+      <center>
+        <input type="checkbox" onclick="myFunction()"> Show Password
+      </center>
+    </div>
 
-<img src="greenhusky.png" alt="Green Husky" class="login-background-image">
+    <div class="form-grp">
+      <input type="submit" value="Login">
+    </div>
+  </form>
 
+  <img src="greenhusky.png" alt="Green Husky" class="login-background-image">
 </body>
-
 </html>
