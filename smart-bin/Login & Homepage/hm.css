@@ -285,3 +285,98 @@ body.fade-out {
                  0 0 10px rgba(53, 114, 102, 0.3);
     margin: 0;
 }
+
+/* Fox Prank Button */
+.fox-prank-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease;
+    opacity: 0.7;
+}
+
+.fox-prank-btn:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* Jumpscare Overlay */
+.jumpscare-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.jumpscare-overlay.active {
+    display: flex;
+}
+
+.jumpscare-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#jumpscare-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#chroma-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.close-jumpscare {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10001;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-jumpscare:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.close-jumpscare.show {
+    display: flex;
+}
