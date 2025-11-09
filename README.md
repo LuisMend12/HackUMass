@@ -33,6 +33,8 @@ A hackathon prototype for real-time waste detection and sorting using computer v
 
 ---
 
+## Raspberry PI Code
+- https://github.com/belanasaikiran/Smart-E-Waste-Bin-Sorter
 ## Quick Start
 
 ### Local Setup
