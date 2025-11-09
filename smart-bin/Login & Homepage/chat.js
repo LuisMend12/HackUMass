@@ -41,10 +41,11 @@ function appendMessage(sender, text) {
 async function getGeminiResponse(prompt) {
   try {
     const res = await fetch("http://localhost:3000/gemini", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt }),
-    });
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt }),
+  });
+
     const data = await res.json();
     return data.text;
   } catch (err) {
